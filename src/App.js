@@ -12,7 +12,7 @@ function App() {
       id: "e2",
       title: "New TV",
       amount: 799.49,
-      date: new Date(2021, 2, 12)
+      date: new Date(2021, 2, 12),
     },
     {
       id: "e3",
@@ -31,10 +31,10 @@ function App() {
   return (
     <div className="App">
       <h2>Let's get started!</h2>
-      <ExpenseItem expense={expenses[0]}></ExpenseItem>
-      <ExpenseItem expense={expenses[1]}></ExpenseItem>
-      <ExpenseItem expense={expenses[2]}></ExpenseItem>
-      <ExpenseItem expense={expenses[3]}></ExpenseItem>
+      <ExpenseItem expense={expenses[0]} />
+      <ExpenseItem expense={expenses[1]} />
+      <ExpenseItem expense={expenses[2]} />
+      <ExpenseItem expense={expenses[3]} />
     </div>
   );
 }
