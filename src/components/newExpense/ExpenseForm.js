@@ -12,7 +12,7 @@ function ExpenseForm({ onSaveExpenseData, onCalcel }) {
     if (identifier === "title") {
       setUserInput((prevState) => ({ ...prevState, title: value }));
     } else if (identifier === "amount") {
-      setUserInput((prevState) => ({ ...prevState, amount: value }));
+      setUserInput((prevState) => ({ ...prevState, amount: +value }));
     } else {
       setUserInput((prevState) => ({ ...prevState, date: value }));
     }
