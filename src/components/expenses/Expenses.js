@@ -7,9 +7,21 @@ import ExpensesFilter from "./ExpensesFilter";
 function Expenses({ items }) {
   const [filteredYear, setFilteredYear] = useState("2023");
 
+  const filteredExpenses = items.filter((expense) => {
+    //returns a brand-new array, doesn't change the original array
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
+
+  let expensesContent = <p>No expenses found</p>;
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((item) => (
+      <ExpenseItem expense={item} key={item.id} />
+    ));
+  }
 
   return (
     <Card className="expenses">
@@ -17,9 +29,7 @@ function Expenses({ items }) {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {items.map((item) => (
-        <ExpenseItem expense={item} key={item.id} />
-      ))}
+      {expensesContent}
     </Card>
   );
 }
